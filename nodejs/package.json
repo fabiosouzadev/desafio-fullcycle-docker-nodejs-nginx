@@ -1,0 +1,13 @@
+{
+  "name": "nodejs",
+  "version": "0.0.1",
+  "description": "Desafio FullCycle Nodejs + Proxy Reverso",
+  "main": "index.js",
+  "repository": "https://github.com/fabiosouzadev/desafio-fullcycle-docker-nodejs-nginx",
+  "author": "Fabio Souza <fabiovanderlei.developer@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
