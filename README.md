@@ -28,6 +28,27 @@ $ docker-compose up -d
 http://localhost:8080
 ```
 
+## Obs:
+> Não usei dockerize, preferi usar o healthcheck, o link pra documentação esta na seção `Links`
+```yaml
+    db:
+    ...
+        healthcheck:
+            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-uroot", "-proot"]
+            interval: 5s
+            timeout: 5s
+            retries: 20
+            start_period: 25s
+
+    nodejs:
+     ...
+        depends_on:
+            db:
+            condition: service_healthy
+  ...
+```
+
 ## 📖 Links
 - [Awesome Docker Compose samples](https://github.com/docker/awesome-compose)
 - [Docker Composer Docs](https://docs.docker.com/compose/)
+- [Docker Composer Healthcheck Docs](https://docs.docker.com/engine/reference/builder/#healthcheck)

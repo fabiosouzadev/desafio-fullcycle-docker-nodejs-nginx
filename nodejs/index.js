@@ -26,7 +26,6 @@ function execSQLQuery(sqlQry, res) {
         if (error) console.log(error);
         else res.render("user-list", { title: "User List", userData: data });
         connection.end();
-        console.log("executou!");
     });
 }
 // const sql = `INSERT INTO people(id,name) values(2,'Fabio Souza')`;

@@ -17,18 +17,11 @@ services:
     networks:
       - node-network
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      interval: 3s
-      retries: 5
-      start_period: 30s
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - "8081:8080"
-    networks:
-      - node-network
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 25s
 
   nodejs:
     image: nodejs
@@ -39,7 +32,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-
 
   proxy:
     image: proxy
