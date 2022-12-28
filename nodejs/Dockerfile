@@ -1,9 +1,12 @@
-FROM node:15
+FROM node:alpine
 
 WORKDIR /usr/src/app
 
-COPY . .
-
+COPY package.json ./
+COPY views  views/
+COPY index.js ./
+COPY public  public/
+RUN npm install
 
 EXPOSE 3000
 
