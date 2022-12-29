@@ -30,9 +30,12 @@ http://localhost:8080
 
 ## Obs:
 > Não usei dockerize, preferi usar o healthcheck, o link pra documentação esta na seção `Links`
+
+`docker-compose.yaml`
 ```yaml
-    db:
     ...
+    db:
+        ...
         healthcheck:
             test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-uroot", "-proot"]
             interval: 5s
@@ -45,7 +48,7 @@ http://localhost:8080
         depends_on:
             db:
             condition: service_healthy
-  ...
+    ...
 ```
 
 ## 📖 Links
